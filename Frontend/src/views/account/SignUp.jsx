@@ -1,6 +1,6 @@
 import { lazy } from "react";
 import { Link } from "react-router-dom";
-const SingUpForm = lazy(() => import("../../components/account/SignUpForm"));
+const SignUpForm = lazy(() => import("../../components/account/SignUpForm"));
 
 const SignUpView = () => {
   const onSubmit = async (values) => {
@@ -27,7 +27,7 @@ const SignUpView = () => {
         </div>
         <div className="col-md-6 p-3">
           <h4 className="text-center">Sign Up</h4>
-          <SingUpForm onSubmit={onSubmit} />
+          <SignUpForm onSubmit={onSubmit} />
         </div>
       </div>
     </div>
