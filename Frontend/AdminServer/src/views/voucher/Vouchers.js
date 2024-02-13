@@ -6,6 +6,10 @@ import {
   CCardGroup,
   CCardHeader,
   CCol,
+  CFormInput,
+  CFormSelect,
+  CInputGroup,
+  CInputGroupText,
   CLink,
   CRow,
   CWidgetStatsB,
@@ -49,7 +53,50 @@ const Vouchers = () => {
           </CCol>
         </CRow>
       </CCardHeader>
-      <CCardBody></CCardBody>
+      <CCardBody>
+        <CRow>
+          <CCol xs={12} sm={6} lg={4}>
+            <CInputGroup className="mb-3">
+              <CInputGroupText id="VoucherNameInput">Voucher Name</CInputGroupText>
+              <CFormInput aria-label="VoucherNameInput" placeholder="voucher name"></CFormInput>
+            </CInputGroup>
+          </CCol>
+
+          <CCol xs={12} sm={6} lg={4}>
+            <CInputGroup className="mb-3">
+              <CInputGroupText id="VoucherTypeSelect">Product Type</CInputGroupText>
+              <CFormSelect aria-label="VoucherTypeSelect">
+                <option value="0">All</option>
+                <option value="1">Fresh Produce</option>
+                <option value="2">Electronics</option>
+                <option value="3">Toys</option>
+                <option value="4">Furniture</option>
+              </CFormSelect>
+            </CInputGroup>
+          </CCol>
+
+          <CCol xs={12} sm={6} lg={4}>
+            <CInputGroup className="mb-3">
+              <CInputGroupText id="ForShopInput">Applied Shop</CInputGroupText>
+              <CFormInput aria-label="ForShopInput" placeholder="shop name"></CFormInput>
+            </CInputGroup>
+          </CCol>
+
+          <CCol xs={12} sm={6} lg={4}>
+            <CInputGroup className="mb-3">
+              <CInputGroupText id="ForShopInput">Applied Shop</CInputGroupText>
+              <CFormInput aria-label="ForShopInput" placeholder="shop name"></CFormInput>
+            </CInputGroup>
+          </CCol>
+        </CRow>
+        <CRow>
+          <CCol xs={12} sm={12} lg={12} className="text-end">
+            <CButton type="submit" className="mb-3">
+              Confirm identity
+            </CButton>
+          </CCol>
+        </CRow>
+      </CCardBody>
     </CCard>
   )
 }
