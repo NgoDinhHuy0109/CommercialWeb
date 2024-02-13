@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   CButton,
   CCard,
@@ -35,6 +35,7 @@ import {
 } from '@coreui/icons'
 import { CChartBar, CChartLine } from '@coreui/react-chartjs'
 import { DocsExample } from 'src/components'
+import './Vouchers.css'
 
 const Vouchers = () => {
   const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
@@ -84,8 +85,26 @@ const Vouchers = () => {
 
           <CCol xs={12} sm={6} lg={4}>
             <CInputGroup className="mb-3">
-              <CInputGroupText id="ForShopInput">Applied Shop</CInputGroupText>
-              <CFormInput aria-label="ForShopInput" placeholder="shop name"></CFormInput>
+              <CInputGroupText id="CreatedDateInput">Created Date</CInputGroupText>
+              <CFormInput aria-label="CreatedDateInput" placeholder="dd/mm/yyyy"></CFormInput>
+            </CInputGroup>
+          </CCol>
+
+          <CCol xs={12} sm={6} lg={4}>
+            <CInputGroup className="mb-3">
+              <CInputGroupText id="ExpireDateInput">Expire Date</CInputGroupText>
+              <CFormInput aria-label="ExpireDateInput" placeholder="dd/mm/yyyy"></CFormInput>
+            </CInputGroup>
+          </CCol>
+
+          <CCol xs={12} sm={6} lg={4}>
+            <CInputGroup className="mb-3">
+              <CInputGroupText id="VoucherStatusSelect">Voucher Status</CInputGroupText>
+              <CFormSelect aria-label="VoucherStatusSelect">
+                <option value="0">Valid</option>
+                <option value="1">Expired</option>
+                <option value="2">Deleted</option>
+              </CFormSelect>
             </CInputGroup>
           </CCol>
         </CRow>
