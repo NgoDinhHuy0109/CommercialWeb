@@ -6,7 +6,10 @@ import {
   CCardGroup,
   CCardHeader,
   CCol,
+  CForm,
+  CFormCheck,
   CFormInput,
+  CFormLabel,
   CFormSelect,
   CInputGroup,
   CInputGroupText,
@@ -42,6 +45,7 @@ import {
 import { CChartBar, CChartLine } from '@coreui/react-chartjs'
 import { DocsExample } from 'src/components'
 import { Link } from 'react-router-dom'
+import './createVoucher.css'
 
 const CreateVoucher = () => {
   const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
@@ -65,66 +69,71 @@ const CreateVoucher = () => {
         </CRow>
       </CCardHeader>
       <CCardBody>
-        <CRow>
-          <CCol xs={12} sm={6} lg={4}>
-            <CInputGroup className="mb-3">
-              <CInputGroupText id="VoucherNameInput">Voucher Name</CInputGroupText>
-              <CFormInput aria-label="VoucherNameInput" placeholder="voucher name"></CFormInput>
-            </CInputGroup>
-          </CCol>
-
-          <CCol xs={12} sm={6} lg={4}>
-            <CInputGroup className="mb-3">
-              <CInputGroupText id="VoucherNameInput">Value</CInputGroupText>
-              <CFormInput aria-label="VoucherNameInput" placeholder="voucher name"></CFormInput>
-            </CInputGroup>
-          </CCol>
-
-          <CCol xs={12} sm={6} lg={4}>
-            <CInputGroup className="mb-3">
-              <CInputGroupText id="VoucherTypeSelect">Product Type</CInputGroupText>
-              <CFormSelect aria-label="VoucherTypeSelect">
-                <option value="0">All</option>
-                <option value="1">Fresh Produce</option>
-                <option value="2">Electronics</option>
-                <option value="3">Toys</option>
-                <option value="4">Furniture</option>
-              </CFormSelect>
-            </CInputGroup>
-          </CCol>
-
-          <CCol xs={12} sm={6} lg={4}>
-            <CInputGroup className="mb-3">
-              <CInputGroupText id="ForShopInput">Applied Shop</CInputGroupText>
-              <CFormInput aria-label="ForShopInput" placeholder="shop name"></CFormInput>
-            </CInputGroup>
-          </CCol>
-
-          <CCol xs={12} sm={6} lg={4}>
-            <CInputGroup className="mb-3">
-              <CInputGroupText id="CreatedDateInput">Created Date</CInputGroupText>
-              <CFormInput aria-label="CreatedDateInput" placeholder="dd/mm/yyyy"></CFormInput>
-            </CInputGroup>
-          </CCol>
-
-          <CCol xs={12} sm={6} lg={4}>
-            <CInputGroup className="mb-3">
-              <CInputGroupText id="ExpireDateInput">Expire Date</CInputGroupText>
-              <CFormInput aria-label="ExpireDateInput" placeholder="dd/mm/yyyy"></CFormInput>
-            </CInputGroup>
-          </CCol>
-
-          <CCol xs={12} sm={6} lg={4}>
-            <CInputGroup className="mb-3">
-              <CInputGroupText id="VoucherStatusSelect">Voucher Status</CInputGroupText>
-              <CFormSelect aria-label="VoucherStatusSelect">
-                <option value="0">Valid</option>
-                <option value="1">Expired</option>
-                <option value="2">Deleted</option>
-              </CFormSelect>
-            </CInputGroup>
-          </CCol>
-        </CRow>
+        <CForm>
+          <CRow className="mb-3">
+            <CFormLabel htmlFor="voucherName" className="col-sm-2 col-form-label">
+              Name
+            </CFormLabel>
+            <CCol sm={10}>
+              <CFormInput type="text" id="voucherName" />
+            </CCol>
+          </CRow>
+          <CRow className="mb-3">
+            <CFormLabel htmlFor="voucherValue" className="col-sm-2 col-form-label">
+              Value
+            </CFormLabel>
+            <CCol sm={10}>
+              <CFormInput
+                type="number"
+                id="voucherValue"
+                min="1"
+                max="999999999"
+                onWheel={() => document.activeElement.blur()}
+              />
+            </CCol>
+          </CRow>
+          <CRow className="mb-3">
+            <CFormLabel htmlFor="inputPassword3" className="col-sm-2 col-form-label">
+              Password
+            </CFormLabel>
+            <CCol sm={10}>
+              <CFormInput type="password" id="inputPassword3" />
+            </CCol>
+          </CRow>
+          <fieldset className="row mb-3">
+            <legend className="col-form-label col-sm-2 pt-0">Radios</legend>
+            <CCol sm={10}>
+              <CFormCheck
+                type="radio"
+                name="gridRadios"
+                id="gridRadios1"
+                value="option1"
+                label="First radio"
+                defaultChecked
+              />
+              <CFormCheck
+                type="radio"
+                name="gridRadios"
+                id="gridRadios2"
+                value="option2"
+                label="Second radio"
+              />
+              <CFormCheck
+                type="radio"
+                name="gridRadios"
+                id="gridRadios3"
+                value="option3"
+                label="Third disabled radio"
+                disabled
+              />
+            </CCol>
+          </fieldset>
+          <CRow className="mb-3">
+            <div className="col-sm-10 offset-sm-2">
+              <CFormCheck type="checkbox" id="gridCheck1" label="Example checkbox" />
+            </div>
+          </CRow>
+        </CForm>
         <CRow>
           <CCol xs={12} sm={12} lg={12} className="text-end">
             <CButton type="submit" className="mb-3">
