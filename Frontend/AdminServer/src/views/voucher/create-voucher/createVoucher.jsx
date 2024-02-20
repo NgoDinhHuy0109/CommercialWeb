@@ -11,6 +11,7 @@ import {
   CFormInput,
   CFormLabel,
   CFormSelect,
+  CFormTextarea,
   CInputGroup,
   CInputGroupText,
   CLink,
@@ -46,9 +47,46 @@ import { CChartBar, CChartLine } from '@coreui/react-chartjs'
 import { DocsExample } from 'src/components'
 import { Link } from 'react-router-dom'
 import './createVoucher.css'
+import Select from 'react-select'
 
 const CreateVoucher = () => {
   const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
+  const [productTypeSelectedOptions, setProductTypeSelectedOptions] = useState()
+  const [shopSelectedOptions, setshopSelectedOptions] = useState()
+
+  const productTypeList = [
+    { value: '1', label: 'Laptop' },
+    { value: '2', label: 'Phone' },
+    { value: '3', label: 'Fresh meat' },
+    { value: '4', label: 'Vegetables' },
+    { value: '5', label: 'T-shirt' },
+    { value: '6', label: 'Trousers' },
+    { value: '7', label: 'Hat' },
+    { value: '8', label: 'Car' },
+    { value: '9', label: 'Bike' },
+    { value: '10', label: 'TV' },
+  ]
+
+  const shopList = [
+    { value: '1', label: 'Fahasa' },
+    { value: '2', label: 'Apple' },
+    { value: '3', label: 'Samsung' },
+    { value: '4', label: 'Acer' },
+    { value: '5', label: 'Logitech' },
+    { value: '6', label: 'Toyota' },
+    { value: '7', label: 'Uniqlo' },
+    { value: '8', label: 'Việt Tiến' },
+    { value: '9', label: 'Vittel' },
+    { value: '10', label: 'Thegioididong' },
+  ]
+
+  function handleAppliedProductTypeSelect(data) {
+    setProductTypeSelectedOptions(data)
+  }
+
+  function handleAppliedShopTypeSelect(data) {
+    setshopSelectedOptions(data)
+  }
 
   return (
     <CCard className="mb-4">
@@ -78,6 +116,7 @@ const CreateVoucher = () => {
               <CFormInput type="text" id="voucherName" />
             </CCol>
           </CRow>
+
           <CRow className="mb-3">
             <CFormLabel htmlFor="voucherValue" className="col-sm-2 col-form-label">
               Value
@@ -86,7 +125,7 @@ const CreateVoucher = () => {
               <CFormInput
                 type="number"
                 id="voucherValue"
-                min="1"
+                min="0"
                 max="999999999"
                 onWheel={() => document.activeElement.blur()}
               />
@@ -94,39 +133,18 @@ const CreateVoucher = () => {
           </CRow>
 
           <CRow className="mb-3">
-            <CCol xs={2}>
-              <CFormLabel htmlFor="appliedVoucher">Applied Products</CFormLabel>
-            </CCol>
-            <CCol xs={10}>
-              <CRow>
-                <CCol xs={6} lg={4}>
-                  <CFormCheck id="productType1" label="Books" />
-                </CCol>
-                <CCol xs={6} lg={4}>
-                  <CFormCheck id="productType2" label="Electronics" />
-                </CCol>
-                <CCol xs={6} lg={4}>
-                  <CFormCheck id="productType3" label="Vehicles" />
-                </CCol>
-                <CCol xs={6} lg={4}>
-                  <CFormCheck id="productType4" label="Clothing" />
-                </CCol>
-                <CCol xs={6} lg={4}>
-                  <CFormCheck id="productType5" label="Accessory" />
-                </CCol>
-                <CCol xs={6} lg={4}>
-                  <CFormCheck id="productType6" label="Fresh Produce" />
-                </CCol>
-                <CCol xs={6} lg={4}>
-                  <CFormCheck id="productType7" label="Laptop & Computers" />
-                </CCol>
-                <CCol xs={6} lg={4}>
-                  <CFormCheck id="productType8" label="Toys" />
-                </CCol>
-                <CCol xs={6} lg={4}>
-                  <CFormCheck id="productType9" label="Phone & Ipads" />
-                </CCol>
-              </CRow>
+            <CFormLabel htmlFor="voucherAppliedProducts" className="col-sm-2 col-form-label">
+              Applied Products
+            </CFormLabel>
+            <CCol sm={10}>
+              <Select
+                options={productTypeList}
+                placeholder="Select Product Types"
+                value={productTypeSelectedOptions}
+                onChange={handleAppliedProductTypeSelect}
+                isSearchable={true}
+                isMulti
+              />
             </CCol>
           </CRow>
 
@@ -135,7 +153,38 @@ const CreateVoucher = () => {
               Applied Shops
             </CFormLabel>
             <CCol sm={10}>
-              <CFormInput type="text" id="voucherAppliedShops" />
+              <Select
+                options={shopList}
+                placeholder="Select Shops"
+                value={shopSelectedOptions}
+                onChange={handleAppliedShopTypeSelect}
+                isSearchable={true}
+                isMulti
+              />
+            </CCol>
+          </CRow>
+
+          <CRow className="mb-3">
+            <CFormLabel htmlFor="voucherNoHandout" className="col-sm-2 col-form-label">
+              No. Handout
+            </CFormLabel>
+            <CCol sm={10}>
+              <CFormInput
+                type="number"
+                id="voucherNoHandout"
+                min="0"
+                max="999999999"
+                onWheel={() => document.activeElement.blur()}
+              />
+            </CCol>
+          </CRow>
+
+          <CRow className="mb-3">
+            <CFormLabel htmlFor="voucherDescription" className="col-sm-2 col-form-label">
+              Description
+            </CFormLabel>
+            <CCol sm={10}>
+              <CFormTextarea id="voucherDescriptionTextArea" rows="5"></CFormTextarea>
             </CCol>
           </CRow>
         </CForm>
