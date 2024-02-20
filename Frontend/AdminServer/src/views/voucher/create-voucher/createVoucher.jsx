@@ -187,6 +187,15 @@ const CreateVoucher = () => {
               <CFormTextarea id="voucherDescriptionTextArea" rows="5"></CFormTextarea>
             </CCol>
           </CRow>
+
+          <CRow className="mb-3">
+            <CFormLabel htmlFor="voucherExpiredDate" className="col-sm-2 col-form-label">
+              Expired Date
+            </CFormLabel>
+            <CCol sm={10}>
+              <CFormInput type="date" id="voucherExpiredDate" />
+            </CCol>
+          </CRow>
         </CForm>
         <CRow>
           <CCol xs={12} sm={12} lg={12} className="text-end">

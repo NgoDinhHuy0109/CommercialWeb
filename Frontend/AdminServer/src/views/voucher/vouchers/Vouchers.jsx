@@ -96,14 +96,14 @@ const Vouchers = () => {
           <CCol xs={12} sm={6} lg={4}>
             <CInputGroup className="mb-3">
               <CInputGroupText id="CreatedDateInput">Created Date</CInputGroupText>
-              <CFormInput aria-label="CreatedDateInput" placeholder="dd/mm/yyyy"></CFormInput>
+              <CFormInput type="date" aria-label="CreatedDateInput"></CFormInput>
             </CInputGroup>
           </CCol>
 
           <CCol xs={12} sm={6} lg={4}>
             <CInputGroup className="mb-3">
               <CInputGroupText id="ExpireDateInput">Expire Date</CInputGroupText>
-              <CFormInput aria-label="ExpireDateInput" placeholder="dd/mm/yyyy"></CFormInput>
+              <CFormInput type="date" aria-label="ExpireDateInput"></CFormInput>
             </CInputGroup>
           </CCol>
 
