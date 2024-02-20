@@ -41,7 +41,7 @@ import {
 } from '@coreui/icons'
 import { CChartBar, CChartLine } from '@coreui/react-chartjs'
 import { DocsExample } from 'src/components'
-import './Vouchers.css'
+import { Link } from 'react-router-dom'
 
 const Vouchers = () => {
   const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
@@ -55,7 +55,11 @@ const Vouchers = () => {
           </CCol>
           <CCol xs={6} sm={6} lg={6} className="text-end">
             <CButton color="info">
-              <h4 className="mb-0">Create a new voucher</h4>
+              <Link to="/vouchers/create-voucher" style={{ textDecoration: 'none' }}>
+                <h4 className="mb-0" style={{ color: 'white' }}>
+                  Create a new voucher
+                </h4>
+              </Link>
             </CButton>
           </CCol>
         </CRow>
@@ -92,14 +96,14 @@ const Vouchers = () => {
           <CCol xs={12} sm={6} lg={4}>
             <CInputGroup className="mb-3">
               <CInputGroupText id="CreatedDateInput">Created Date</CInputGroupText>
-              <CFormInput aria-label="CreatedDateInput" placeholder="dd/mm/yyyy"></CFormInput>
+              <CFormInput type="date" aria-label="CreatedDateInput"></CFormInput>
             </CInputGroup>
           </CCol>
 
           <CCol xs={12} sm={6} lg={4}>
             <CInputGroup className="mb-3">
               <CInputGroupText id="ExpireDateInput">Expire Date</CInputGroupText>
-              <CFormInput aria-label="ExpireDateInput" placeholder="dd/mm/yyyy"></CFormInput>
+              <CFormInput type="date" aria-label="ExpireDateInput"></CFormInput>
             </CInputGroup>
           </CCol>
 
@@ -117,7 +121,7 @@ const Vouchers = () => {
         <CRow>
           <CCol xs={12} sm={12} lg={12} className="text-end">
             <CButton type="submit" className="mb-3">
-              Confirm identity
+              Search
             </CButton>
           </CCol>
         </CRow>

@@ -50,7 +50,9 @@ const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
-const Vouchers = React.lazy(() => import('./views/voucher/Vouchers'))
+const Vouchers = React.lazy(() => import('./views/voucher/vouchers/Vouchers'))
+
+const CreateVoucher = React.lazy(() => import('./views/voucher/create-voucher/createVoucher'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -98,6 +100,7 @@ const routes = [
   { path: '/notifications/toasts', name: 'Toasts', element: Toasts },
   { path: '/widgets', name: 'Widgets', element: Widgets },
   { path: '/vouchers', name: 'Voucher', element: Vouchers },
+  { path: '/vouchers/create-voucher', name: 'Create Voucher', element: CreateVoucher },
 ]
 
 export default routes
