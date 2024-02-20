@@ -121,7 +121,7 @@ const Vouchers = () => {
         <CRow>
           <CCol xs={12} sm={12} lg={12} className="text-end">
             <CButton type="submit" className="mb-3">
-              Confirm identity
+              Search
             </CButton>
           </CCol>
         </CRow>
