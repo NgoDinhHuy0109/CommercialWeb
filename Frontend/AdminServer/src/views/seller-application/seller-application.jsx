@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Component } from 'react'
 import {
   CButton,
   CCard,
@@ -43,9 +43,14 @@ import { CChartBar, CChartLine } from '@coreui/react-chartjs'
 import { DocsExample } from 'src/components'
 import { Link } from 'react-router-dom'
 import './seller-application.css'
+import SellerApplicationDetails from './seller application details/seller-application-details'
 
 const SellerApplication = () => {
   const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
+
+  function viewApplicationDetails(application) {
+    ;<Link to={`/seller-application/${application}`}>{SellerApplicationDetails(application)}</Link>
+  }
 
   return (
     <CCard className="mb-4">
@@ -147,7 +152,7 @@ const SellerApplication = () => {
               <CTableDataCell>0999888777</CTableDataCell>
               <CTableDataCell>Pending</CTableDataCell>
               <CTableDataCell>
-                <CButton type="submit" className="mb-3">
+                <CButton type="submit" className="mb-3" onClick={viewApplicationDetails('hello')}>
                   Details
                 </CButton>
               </CTableDataCell>
